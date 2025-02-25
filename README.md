@@ -1,4 +1,4 @@
-# FirConv: A PyTorch-based module for building trainable FIR filter ⏳ [![Version](https://img.shields.io/badge/version-0.1.1-red.svg)](https://semver.org) [![PyTorch](https://img.shields.io/badge/PyTorch-%3E%3D1.8.0-orange)](https://pytorch.org)
+# FirConv: A PyTorch-based module for building trainable FIR filter  [![Version](https://img.shields.io/badge/version-0.1.1-red.svg)](https://semver.org) [![PyTorch](https://img.shields.io/badge/PyTorch-%3E%3D1.8.0-orange)](https://pytorch.org)
 
 <img src="https://github.com/user-attachments/assets/923837e9-8192-466f-8985-6cdcd030f03a" width="600" alt="FirCNN Architecture Diagram">
 
@@ -31,11 +31,11 @@ pip install firconv
 import torch
 from firconv.firconv import FirConv
 
-# Create learnable FIR filter with 32 taps
+# Create learnable FIR filter
 fir = FirConv(fres=100, fs=250)
 
-# Process 1D signal batch: (batch_size, channels, seq_len)
-x = torch.randn(1, 63, 250)  # Batch of 63 signals
+# Process signal batch: (batch_size, channels, seq_len)
+x = torch.randn(1, 63, 250)  # Batch of 63 channels signal
 y = fir(x)  # Output shape: (1, 63, 250)
 ```
 
@@ -43,7 +43,7 @@ y = fir(x)  # Output shape: (1, 63, 250)
 | Argument    | Type    | Default | Description                                         |
 |-------------|---------|---------|-----------------------------------------------------|
 | `fres`      | int     | 100     | Filter frequency range [0-fres]                     |
-| `N`         | int     | -       | Filter window size(default compute by fres and fs   |
+| `N`         | int     | -       | Filter window size(default compute by fres and fs)  |
 | `fs`        | int     | 250     | Sample rate                                         |
 
 ## 📅 Release Notes
